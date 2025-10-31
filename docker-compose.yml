@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  command-pattern-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: command-pattern-demo
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    stdin_open: true
+    tty: true
+    networks:
+      - app-network
+
+  command-pattern-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: command-pattern-prod
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    profiles:
+      - production
+
+networks:
+  app-network:
+    driver: bridge

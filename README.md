@@ -21,13 +21,6 @@ npm install
 npm start
 ```
 
-## ⚠️ Paso Importante
-
-**Debes copiar el código de los artifacts a los archivos de componentes:**
-
-1. Copia el código del artifact **"command_pattern_demo"** → `src/components/CommandPatternDemo.js`
-2. Copia el código del artifact **"command-scenarios-deep"** → `src/components/CommandScenariosDeep.js`
-
 ## 📦 Estructura del Proyecto
 
 ```
